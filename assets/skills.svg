@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="380" viewBox="0 0 900 380" font-family="'Cascadia Code','JetBrains Mono',Consolas,'Courier New',monospace" >
+
+<defs>
+  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="2.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="6" result="b"/>
+    <feMergeNode in="b"/>
+  </filter>
+  <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="1.1"/>
+  </filter>
+  <linearGradient id="scanG" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#00f0ff" stop-opacity="0"/>
+    <stop offset="0.82" stop-color="#00f0ff" stop-opacity="0.10"/>
+    <stop offset="1" stop-color="#00f0ff" stop-opacity="0.55"/>
+  </linearGradient>
+  <linearGradient id="panelG" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#0d1526"/>
+    <stop offset="1" stop-color="#05070f"/>
+  </linearGradient>
+</defs>
+<defs>
+  <linearGradient id="sweepW" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#00f0ff" stop-opacity="0.45"/><stop offset="1" stop-color="#00f0ff" stop-opacity="0"/>
+  </linearGradient>
+  <pattern id="crt3" width="4" height="4" patternUnits="userSpaceOnUse">
+    <rect width="4" height="2" fill="#ffffff" opacity="0.03"/>
+  </pattern>
+</defs>
+<style>
+  .bar{animation:fill 7s cubic-bezier(.2,.7,.2,1) infinite}
+  @keyframes fill{0%{transform:scaleX(0.02);opacity:.6}42%{transform:scaleX(1);opacity:1}86%{transform:scaleX(1);opacity:1}100%{transform:scaleX(0.02);opacity:.6}}
+  .pc{animation:pk 2.8s ease-in-out infinite}
+  @keyframes pk{0%,100%{opacity:.6}50%{opacity:1}}
+  .blip{animation:blp 2.4s ease-in-out infinite}
+  @keyframes blp{0%,100%{opacity:.25}50%{opacity:1}}
+  .bd{stroke-dasharray:5 7;animation:dsh 22s linear infinite}
+  @keyframes dsh{to{stroke-dashoffset:-600}}
+</style>
+
+<rect width="900" height="380" rx="14" fill="url(#panelG)" stroke="#0e7490" stroke-opacity="0.6" class="bd"/>
+<rect x="1.5" y="1.5" width="897" height="377" rx="13" fill="url(#crt3)"/>
+
+<text x="30" y="46" font-size="14" letter-spacing="3" fill="#00f0ff">⌁ SKILL.MATRIX — SELF.DIAGNOSTIC</text>
+<text x="870" y="46" text-anchor="end" font-size="11" letter-spacing="2" fill="#a78bfa">CALIBRATION 87.4%</text>
+<line x1="24" y1="62" x2="876" y2="62" stroke="#1c2a44"/>
+
+
+  <text x="44" y="122" font-size="11.5" letter-spacing="2" fill="#7c8db0">TYPESCRIPT</text>
+  <text x="514" y="122" text-anchor="end" font-size="11.5" fill="#00f0ff" class="pc" style="animation-delay:-0.0s">92%</text>
+  <rect x="44" y="128" width="470" height="7" rx="3.5" fill="#1c2a44" opacity="0.55"/>
+  <g style="transform-box:fill-box;transform-origin:left center">
+    <rect class="bar" style="animation-delay:-0.0s" x="44" y="128" width="432" height="7" rx="3.5" fill="#00f0ff" filter="url(#glow)"/>
+  </g>
+  <text x="44" y="164" font-size="11.5" letter-spacing="2" fill="#7c8db0">PYTHON</text>
+  <text x="514" y="164" text-anchor="end" font-size="11.5" fill="#4ade80" class="pc" style="animation-delay:-0.5s">88%</text>
+  <rect x="44" y="170" width="470" height="7" rx="3.5" fill="#1c2a44" opacity="0.55"/>
+  <g style="transform-box:fill-box;transform-origin:left center">
+    <rect class="bar" style="animation-delay:-0.3s" x="44" y="170" width="414" height="7" rx="3.5" fill="#4ade80" filter="url(#glow)"/>
+  </g>
+  <text x="44" y="206" font-size="11.5" letter-spacing="2" fill="#7c8db0">JAVASCRIPT</text>
+  <text x="514" y="206" text-anchor="end" font-size="11.5" fill="#fbbf24" class="pc" style="animation-delay:-1.0s">86%</text>
+  <rect x="44" y="212" width="470" height="7" rx="3.5" fill="#1c2a44" opacity="0.55"/>
+  <g style="transform-box:fill-box;transform-origin:left center">
+    <rect class="bar" style="animation-delay:-0.7s" x="44" y="212" width="404" height="7" rx="3.5" fill="#fbbf24" filter="url(#glow)"/>
+  </g>
+  <text x="44" y="248" font-size="11.5" letter-spacing="2" fill="#7c8db0">HTML / CSS</text>
+  <text x="514" y="248" text-anchor="end" font-size="11.5" fill="#a78bfa" class="pc" style="animation-delay:-1.5s">84%</text>
+  <rect x="44" y="254" width="470" height="7" rx="3.5" fill="#1c2a44" opacity="0.55"/>
+  <g style="transform-box:fill-box;transform-origin:left center">
+    <rect class="bar" style="animation-delay:-1.0s" x="44" y="254" width="395" height="7" rx="3.5" fill="#a78bfa" filter="url(#glow)"/>
+  </g>
+  <text x="44" y="290" font-size="11.5" letter-spacing="2" fill="#7c8db0">AI · RAG / LLM</text>
+  <text x="514" y="290" text-anchor="end" font-size="11.5" fill="#f472b6" class="pc" style="animation-delay:-2.0s">82%</text>
+  <rect x="44" y="296" width="470" height="7" rx="3.5" fill="#1c2a44" opacity="0.55"/>
+  <g style="transform-box:fill-box;transform-origin:left center">
+    <rect class="bar" style="animation-delay:-1.4s" x="44" y="296" width="385" height="7" rx="3.5" fill="#f472b6" filter="url(#glow)"/>
+  </g>
+  <text x="44" y="332" font-size="11.5" letter-spacing="2" fill="#7c8db0">GIT · LINUX</text>
+  <text x="514" y="332" text-anchor="end" font-size="11.5" fill="#60a5fa" class="pc" style="animation-delay:-2.5s">78%</text>
+  <rect x="44" y="338" width="470" height="7" rx="3.5" fill="#1c2a44" opacity="0.55"/>
+  <g style="transform-box:fill-box;transform-origin:left center">
+    <rect class="bar" style="animation-delay:-1.8s" x="44" y="338" width="367" height="7" rx="3.5" fill="#60a5fa" filter="url(#glow)"/>
+  </g>
+
+<circle cx="760" cy="205" r="122" fill="none" stroke="#1c2a44"/>
+<circle cx="760" cy="205" r="27" fill="none" stroke="#0e7490" stroke-opacity="0.4"/><circle cx="760" cy="205" r="54" fill="none" stroke="#0e7490" stroke-opacity="0.4"/><circle cx="760" cy="205" r="81" fill="none" stroke="#0e7490" stroke-opacity="0.4"/><circle cx="760" cy="205" r="108" fill="none" stroke="#0e7490" stroke-opacity="0.4"/><line x1="652" y1="205" x2="868" y2="205" stroke="#0e7490" stroke-opacity="0.3"/><line x1="760" y1="97" x2="760" y2="313" stroke="#0e7490" stroke-opacity="0.3"/>
+<g>
+  <path d="M760 205 L868 205 A108 108 0 0 0 842.7 135.6 Z" fill="url(#sweepW)" opacity="0.5">
+    <animateTransform attributeName="transform" type="rotate" from="0 760 205" to="360 760 205" dur="5.2s" repeatCount="indefinite"/>
+  </path>
+  <line x1="760" y1="205" x2="868" y2="205" stroke="#00f0ff" stroke-width="1.6" filter="url(#glow)">
+    <animateTransform attributeName="transform" type="rotate" from="0 760 205" to="360 760 205" dur="5.2s" repeatCount="indefinite"/>
+  </line>
+</g>
+<circle cx="722" cy="183" r="3.2" fill="#4ade80" filter="url(#glow)" class="blip" style="animation-delay:-0.0s"/><circle cx="790" cy="217" r="3.2" fill="#00f0ff" filter="url(#glow)" class="blip" style="animation-delay:-1.1s"/><circle cx="768" cy="153" r="3.2" fill="#fbbf24" filter="url(#glow)" class="blip" style="animation-delay:-2.0s"/><circle cx="745" cy="249" r="3.2" fill="#a78bfa" filter="url(#glow)" class="blip" style="animation-delay:-0.6s"/>
+<circle cx="760" cy="205" r="3.4" fill="#00f0ff"/>
+<text x="760" y="347" text-anchor="middle" font-size="10" letter-spacing="2" fill="#7c8db0">SCANNING ENVIRONMENT</text>
+
+<path d="M8 26 L8 8 L26 8" fill="none" stroke="#00f0ff" stroke-width="2" opacity="0.35" class=""/><path d="M892 26 L892 8 L874 8" fill="none" stroke="#00f0ff" stroke-width="2" opacity="0.35" class=""/><path d="M8 354 L8 372 L26 372" fill="none" stroke="#00f0ff" stroke-width="2" opacity="0.35" class=""/><path d="M892 354 L892 372 L874 372" fill="none" stroke="#00f0ff" stroke-width="2" opacity="0.35" class=""/>
+</svg>

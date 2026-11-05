@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="150" viewBox="0 0 1100 150" font-family="'Cascadia Code','JetBrains Mono',Consolas,'Courier New',monospace" >
+
+<defs>
+  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="2.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="6" result="b"/>
+    <feMergeNode in="b"/>
+  </filter>
+  <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="1.1"/>
+  </filter>
+  <linearGradient id="scanG" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#00f0ff" stop-opacity="0"/>
+    <stop offset="0.82" stop-color="#00f0ff" stop-opacity="0.10"/>
+    <stop offset="1" stop-color="#00f0ff" stop-opacity="0.55"/>
+  </linearGradient>
+  <linearGradient id="panelG" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#0d1526"/>
+    <stop offset="1" stop-color="#05070f"/>
+  </linearGradient>
+</defs>
+<style>
+  .st{animation:twk 4s ease-in-out infinite alternate}
+  @keyframes twk{from{opacity:.1}to{opacity:.9}}
+  .end{animation:subp 3.4s ease-in-out infinite}
+  @keyframes subp{0%,100%{opacity:.55}50%{opacity:1}}
+  .dot{animation:blk 1.2s steps(2,start) infinite}
+  @keyframes blk{to{visibility:hidden}}
+  .swp{animation:swp 6s cubic-bezier(.45,0,.55,1) infinite}
+  @keyframes swp{0%{transform:translateY(0);opacity:0}15%{opacity:.5}85%{opacity:.5}100%{transform:translateY(84px);opacity:0}}
+</style>
+<rect width="1100" height="150" fill="#05070f"/>
+<circle class="st" style="animation-delay:-0.30s" cx="625.0" cy="55.6" r="0.9"/><circle class="st" style="animation-delay:-1.52s" cx="311.0" cy="17.9" r="1.1"/><circle class="st" style="animation-delay:-0.88s" cx="634.8" cy="22.6" r="1.4"/><circle class="st" style="animation-delay:-2.97s" cx="1066.5" cy="32.1" r="1.4"/><circle class="st" style="animation-delay:-2.19s" cx="24.5" cy="23.4" r="1.8"/><circle class="st" style="animation-delay:-1.14s" cx="480.4" cy="7.8" r="0.9"/><circle class="st" style="animation-delay:-4.24s" cx="719.0" cy="35.8" r="1.1"/><circle class="st" style="animation-delay:-1.01s" cx="370.9" cy="51.1" r="1.1"/><circle class="st" style="animation-delay:-0.50s" cx="832.6" cy="56.8" r="1.1"/><circle class="st" style="animation-delay:-3.34s" cx="1095.6" cy="46.9" r="1.4"/><circle class="st" style="animation-delay:-1.61s" cx="968.7" cy="33.7" r="0.9"/><circle class="st" style="animation-delay:-1.00s" cx="7.3" cy="58.4" r="0.9"/><circle class="st" style="animation-delay:-4.06s" cx="162.4" cy="39.9" r="1.8"/><circle class="st" style="animation-delay:-1.22s" cx="481.5" cy="36.8" r="1.1"/><circle class="st" style="animation-delay:-0.36s" cx="711.5" cy="17.3" r="1.1"/><circle class="st" style="animation-delay:-4.42s" cx="365.3" cy="11.5" r="1.4"/><circle class="st" style="animation-delay:-3.73s" cx="65.7" cy="52.1" r="0.9"/><circle class="st" style="animation-delay:-2.72s" cx="209.1" cy="51.0" r="0.9"/><circle class="st" style="animation-delay:-4.95s" cx="612.0" cy="52.6" r="1.8"/><circle class="st" style="animation-delay:-4.16s" cx="1095.4" cy="21.4" r="1.1"/><circle class="st" style="animation-delay:-4.37s" cx="283.0" cy="41.9" r="1.1"/><circle class="st" style="animation-delay:-1.71s" cx="170.0" cy="13.9" r="0.9"/><circle class="st" style="animation-delay:-0.09s" cx="244.0" cy="43.9" r="0.9"/><circle class="st" style="animation-delay:-2.33s" cx="901.1" cy="51.0" r="1.1"/><circle class="st" style="animation-delay:-1.86s" cx="269.8" cy="54.2" r="0.9"/><circle class="st" style="animation-delay:-1.94s" cx="630.3" cy="4.2" r="1.4"/><circle class="st" style="animation-delay:-0.08s" cx="313.9" cy="21.3" r="0.9"/><circle class="st" style="animation-delay:-2.95s" cx="127.5" cy="41.2" r="1.1"/><circle class="st" style="animation-delay:-3.08s" cx="276.8" cy="18.6" r="0.9"/><circle class="st" style="animation-delay:-0.33s" cx="19.0" cy="27.3" r="1.8"/><circle class="st" style="animation-delay:-0.13s" cx="791.0" cy="31.7" r="1.1"/><circle class="st" style="animation-delay:-1.09s" cx="784.8" cy="45.0" r="0.9"/><circle class="st" style="animation-delay:-3.95s" cx="217.1" cy="34.6" r="1.4"/><circle class="st" style="animation-delay:-0.41s" cx="20.6" cy="42.5" r="0.9"/><circle class="st" style="animation-delay:-2.59s" cx="149.3" cy="20.0" r="1.4"/><circle class="st" style="animation-delay:-4.06s" cx="102.6" cy="52.9" r="1.1"/><circle class="st" style="animation-delay:-2.26s" cx="232.1" cy="47.9" r="1.8"/><circle class="st" style="animation-delay:-4.57s" cx="406.6" cy="19.8" r="0.9"/><circle class="st" style="animation-delay:-4.00s" cx="807.3" cy="9.8" r="1.4"/><circle class="st" style="animation-delay:-2.03s" cx="497.4" cy="31.2" r="0.9"/><circle class="st" style="animation-delay:-2.23s" cx="162.7" cy="27.7" r="0.9"/><circle class="st" style="animation-delay:-1.81s" cx="1007.2" cy="5.0" r="1.4"/><circle class="st" style="animation-delay:-4.51s" cx="1027.8" cy="4.8" r="1.4"/><circle class="st" style="animation-delay:-1.28s" cx="665.5" cy="45.7" r="0.9"/><circle class="st" style="animation-delay:-3.37s" cx="12.2" cy="55.6" r="1.4"/><circle class="st" style="animation-delay:-3.16s" cx="949.2" cy="56.1" r="1.4"/>
+<line x1="0" y1="66" x2="1100" y2="66" stroke="#00f0ff" stroke-opacity="0.5"/>
+<g><line x1="214" y1="66" x2="-1270" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="238" y1="66" x2="-1140" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="262" y1="66" x2="-1010" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="286" y1="66" x2="-880" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="310" y1="66" x2="-750" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="334" y1="66" x2="-620" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="358" y1="66" x2="-490" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="382" y1="66" x2="-360" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="406" y1="66" x2="-230" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="430" y1="66" x2="-100" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="454" y1="66" x2="30" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="478" y1="66" x2="160" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="502" y1="66" x2="290" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="526" y1="66" x2="420" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="550" y1="66" x2="550" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="574" y1="66" x2="680" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="598" y1="66" x2="810" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="622" y1="66" x2="940" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="646" y1="66" x2="1070" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="670" y1="66" x2="1200" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="694" y1="66" x2="1330" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="718" y1="66" x2="1460" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="742" y1="66" x2="1590" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="766" y1="66" x2="1720" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="790" y1="66" x2="1850" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="814" y1="66" x2="1980" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="838" y1="66" x2="2110" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="862" y1="66" x2="2240" y2="150" stroke="#0e7490" stroke-opacity="0.2"/><line x1="886" y1="66" x2="2370" y2="150" stroke="#0e7490" stroke-opacity="0.2"/></g><line x1="0" y1="70.0" x2="1100" y2="70.0" stroke="#0e7490" stroke-opacity="0.18"/><line x1="0" y1="79.0" x2="1100" y2="79.0" stroke="#0e7490" stroke-opacity="0.18"/><line x1="0" y1="91.9" x2="1100" y2="91.9" stroke="#0e7490" stroke-opacity="0.18"/><line x1="0" y1="108.2" x2="1100" y2="108.2" stroke="#0e7490" stroke-opacity="0.18"/><line x1="0" y1="127.6" x2="1100" y2="127.6" stroke="#0e7490" stroke-opacity="0.18"/><line x1="0" y1="150.0" x2="1100" y2="150.0" stroke="#0e7490" stroke-opacity="0.18"/>
+<rect x="0" y="66" width="1100" height="84" fill="url(#scanG)" opacity="0.12" class="swp"/>
+<text class="end" x="550.0" y="44" text-anchor="middle" font-size="14" letter-spacing="6" fill="#00f0ff">◈ TRANSMISSION.ACTIVE ◈</text>
+<text x="550.0" y="92" text-anchor="middle" font-size="11" letter-spacing="3" fill="#7c8db0">github/avani376 <tspan fill="#a78bfa">·</tspan> x/@a_avani08 <tspan fill="#a78bfa">·</tspan> in/avani-jannawar</text>
+<text x="550.0" y="112" text-anchor="middle" font-size="10" letter-spacing="2" fill="#44536e">© 2026 · designed in the terminal · powered by caffeine</text>
+</svg>

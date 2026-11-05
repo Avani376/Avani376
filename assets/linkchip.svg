@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="72" viewBox="0 0 400 72" font-family="'Cascadia Code','JetBrains Mono',Consolas,'Courier New',monospace" >
+
+<defs>
+  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="2.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="6" result="b"/>
+    <feMergeNode in="b"/>
+  </filter>
+  <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="1.1"/>
+  </filter>
+  <linearGradient id="scanG" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#00f0ff" stop-opacity="0"/>
+    <stop offset="0.82" stop-color="#00f0ff" stop-opacity="0.10"/>
+    <stop offset="1" stop-color="#00f0ff" stop-opacity="0.55"/>
+  </linearGradient>
+  <linearGradient id="panelG" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#0d1526"/>
+    <stop offset="1" stop-color="#05070f"/>
+  </linearGradient>
+</defs>
+<style>
+  .ring{animation:ring 2.6s ease-out infinite}
+  @keyframes ring{0%{opacity:.8;r:8}100%{opacity:0;r:22}}
+  .shine{animation:shn 3.4s ease-in-out infinite}
+  @keyframes shn{0%{transform:translateX(-130px)}55%,100%{transform:translateX(190px)}}
+  .cta{animation:pk 2.2s ease-in-out infinite}
+  @keyframes pk{0%,100%{opacity:.7}50%{opacity:1}}
+  @keyframes pk2{0%,100%{opacity:.6}50%{opacity:1}}
+</style>
+<defs>
+  <linearGradient id="chipG" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#0a1224"/><stop offset="1" stop-color="#101c3a"/>
+  </linearGradient>
+  <linearGradient id="shineG" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+    <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.22"/>
+    <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+  </linearGradient>
+  <clipPath id="chipClip"><rect width="400" height="72" rx="14"/></clipPath>
+</defs>
+<rect width="400" height="72" rx="14" fill="url(#chipG)" stroke="#0a66c2" stroke-opacity="0.9" stroke-width="1.6"/>
+<g clip-path="url(#chipClip)">
+  <rect class="shine" x="0" y="0" width="90" height="72" fill="url(#shineG)"/>
+</g>
+<circle cx="36" cy="36" r="8" fill="none" stroke="#00f0ff" class="ring"/>
+<rect x="20" y="20" width="32" height="32" rx="7" fill="#0a66c2"/>
+<text x="36" y="43" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff" font-family="Arial, sans-serif">in</text>
+<text x="64" y="32" font-size="12" letter-spacing="2" fill="#7c8db0">LINKEDIN</text>
+<text x="64" y="52" font-size="14" fill="#e6f1ff">avani-jannawar</text>
+<text class="cta" x="384" y="43" text-anchor="end" font-size="12" letter-spacing="2" fill="#00f0ff">CONNECT ▸</text>
+</svg>
