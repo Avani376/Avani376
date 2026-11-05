@@ -278,20 +278,24 @@ def render_snake(d):
     rects = "".join(rects)
 
     n = len(path_pts)
-    dur = max(18.0, round(n * 0.045, 1))
-    seg = 0.085  # seconds between snake body segments
+    dur = max(24.0, round(n * 0.08, 1))
+    seg = 0.06  # seconds between body segments -> spacing ~= one grid cell
+    sx, sy = path_pts[0]
     d_attr = "M " + " L ".join(f"{x:.1f} {y:.1f}" for x, y in path_pts)
     body_parts = [f'<path id="snk" d="{d_attr}" fill="none" stroke="none"/>']
-    # glowing head + trailing body
+    # Glowing head + trailing body. begin = -(dur - i*seg) puts segment i
+    # exactly i*seg seconds of phase BEHIND the head (a plain negative begin
+    # runs ahead; a positive begin never activates on some renderers), and
+    # keeps every segment active from t=0.
     body_parts.append(
-        f'<circle r="4.6" fill="#ffffff" filter="url(#glow)">'
+        f'<circle cx="{sx:.1f}" cy="{sy:.1f}" r="4.6" fill="#ffffff" filter="url(#glow)">'
         f'<animateMotion dur="{dur}s" repeatCount="indefinite" rotate="0"><mpath xlink:href="#snk" href="#snk"/></animateMotion></circle>')
-    for i in range(1, 11):
-        r = 3.6 - i * 0.22
-        op = 0.85 - i * 0.065
+    for i in range(1, 17):
+        r = 3.8 - i * 0.14
+        op = 0.9 - i * 0.042
         body_parts.append(
-            f'<circle r="{r:.2f}" fill="{CYAN}" opacity="{op:.2f}">'
-            f'<animateMotion dur="{dur}s" begin="-{i * seg:.3f}s" repeatCount="indefinite"><mpath xlink:href="#snk" href="#snk"/></animateMotion></circle>')
+            f'<circle cx="{sx:.1f}" cy="{sy:.1f}" r="{r:.2f}" fill="{CYAN}" opacity="{op:.2f}">'
+            f'<animateMotion dur="{dur}s" begin="-{dur - i * seg:.3f}s" repeatCount="indefinite"><mpath xlink:href="#snk" href="#snk"/></animateMotion></circle>')
     body = "".join(body_parts)
 
     total = d["total_contribs"]
