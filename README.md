@@ -9,12 +9,6 @@
 
 <img src="assets/ticker.svg" width="100%" alt="technology ticker"/>
 
-<a href="https://komarev.com/ghpvc/?username=avani376&style=for-the-badge&color=00f0ff&label=SESSION+VIEWS">
-  <img src="https://komarev.com/ghpvc/?username=avani376&style=for-the-badge&color=00f0ff&label=SESSION+VIEWS" alt="profile views"/>
-</a>
-
-<br/><br/>
-
 <img src="assets/boot.svg" width="100%" alt="boot sequence terminal"/>
 
 </div>
@@ -47,7 +41,7 @@ reconciliation for campuses, with a deterministic balance and a full audit trail
 </div>
 
 <div align="center">
-<img src="https://skillicons.dev/icons?i=ts,py,js,html,css,git,github,vscode&theme=dark" alt="tech icons"/>
+<img src="assets/tech.svg" width="100%" alt="tech stack chips"/>
 </div>
 
 ---
@@ -68,17 +62,12 @@ reconciliation for campuses, with a deterministic balance and a full audit trail
 
 ### 📡 telemetry
 
+*Every number below is pulled from the GitHub API by my own renderer and committed
+back to this repo — nothing on this page depends on a third-party service.*
+
 <div align="center">
 
-<img src="https://github-readme-stats-sigma-five.vercel.app/api?username=avani376&show_icons=true&hide_border=true&bg_color=00000000&title_color=00f0ff&icon_color=a78bfa&text_color=c9d1d9&include_all_commits=true" width="48%" alt="GitHub stats"/>
-<img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=avani376&layout=compact&hide_border=true&bg_color=00000000&title_color=00f0ff&text_color=c9d1d9" width="40%" alt="top languages"/>
-
-<img src="https://streak-stats.demolab.com?user=avani376&hide_border=true&background=00000000&ring=00F0FF&fire=A78BFA&currStreakLabel=00F0FF&sideLabels=7C8DB0&currStreakNum=E6F1FF&sideNums=E6F1FF&dates=44536E" width="70%" alt="GitHub streak"/>
-
-<a href="https://github.com/Avani376?tab=achievements"><img src="https://img.shields.io/badge/PULL_SHARK-UNLOCKED-a855f7?style=for-the-badge&logo=github&logoColor=white&labelColor=0a101f" alt="Pull Shark achievement"/></a>
-<img src="https://img.shields.io/badge/REPOS-11-00f0ff?style=for-the-badge&labelColor=0a101f" alt="public repos"/>
-<img src="https://img.shields.io/badge/STARS-4-00f0ff?style=for-the-badge&labelColor=0a101f" alt="stars earned"/>
-<img src="https://img.shields.io/badge/FOLLOWERS-3-00f0ff?style=for-the-badge&labelColor=0a101f" alt="followers"/>
+<img src="assets/stats.svg" width="100%" alt="self-hosted telemetry: contributions, streaks, repos, stars, followers, top languages"/>
 
 </div>
 
@@ -88,12 +77,8 @@ reconciliation for campuses, with a deterministic balance and a full audit trail
 
 <div align="center">
 
-<!-- keep the snake fed: workflow in .github/workflows/snake.yml -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/avani376/avani376/output/github-contribution-grid-snake-dark.svg"/>
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/avani376/avani376/output/github-contribution-grid-snake.svg"/>
-  <img src="https://raw.githubusercontent.com/avani376/avani376/output/github-contribution-grid-snake.svg" width="100%" alt="contribution snake animation"/>
-</picture>
+<!-- self-rendered: .github/workflows/telemetry.yml → tools/render_telemetry.py -->
+<img src="assets/snake.svg" width="100%" alt="contribution stream — a snake eating my real commit graph, rendered daily"/>
 
 </div>
 
@@ -109,8 +94,8 @@ reconciliation for campuses, with a deterministic balance and a full audit trail
 
 &nbsp;
 
-<a href="https://x.com/a_avani08"><img src="https://img.shields.io/badge/X-@a_avani08-0a101f?style=for-the-badge&logo=x&logoColor=00f0ff&labelColor=0a101f&color=%230a66c2" alt="X / Twitter"/></a>
-<a href="https://github.com/avani376"><img src="https://img.shields.io/badge/GITHUB-@avani376-0a101f?style=for-the-badge&logo=github&logoColor=e6f1ff&labelColor=0a101f" alt="GitHub"/></a>
+<a href="https://x.com/a_avani08"><img src="assets/x-chip.svg" width="300" alt="X / Twitter — @a_avani08"/></a>
+<a href="https://github.com/avani376"><img src="assets/gh-chip.svg" width="300" alt="GitHub — @avani376"/></a>
 
 </div>
 

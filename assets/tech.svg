@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="96" viewBox="0 0 900 96" font-family="'Cascadia Code','JetBrains Mono',Consolas,'Courier New',monospace" >
+
+<defs>
+  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="2.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="6" result="b"/>
+    <feMergeNode in="b"/>
+  </filter>
+  <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="1.1"/>
+  </filter>
+  <linearGradient id="scanG" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#00f0ff" stop-opacity="0"/>
+    <stop offset="0.82" stop-color="#00f0ff" stop-opacity="0.10"/>
+    <stop offset="1" stop-color="#00f0ff" stop-opacity="0.55"/>
+  </linearGradient>
+  <linearGradient id="panelG" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#0d1526"/>
+    <stop offset="1" stop-color="#05070f"/>
+  </linearGradient>
+</defs>
+<style>
+  .chip{animation:chp 3.6s ease-in-out infinite}
+  @keyframes chp{0%,100%{opacity:.72;transform:translateY(0)}50%{opacity:1;transform:translateY(-2px)}}
+</style>
+<rect width="900" height="96" rx="10" fill="#0a101f" stroke="#1c2a44"/>
+
+  <g class="chip" style="animation-delay:-0.00s">
+    <rect x="55.0" y="18" width="76" height="60" rx="12" fill="#0d1526" stroke="#3178c6" stroke-opacity="0.85"/>
+    <text x="93.0" y="57" text-anchor="middle" font-size="17" font-weight="700" fill="#3178c6" filter="url(#glow)">TS</text>
+  </g>
+  <g class="chip" style="animation-delay:-0.45s">
+    <rect x="157.0" y="18" width="76" height="60" rx="12" fill="#0d1526" stroke="#4B8BBE" stroke-opacity="0.85"/>
+    <text x="195.0" y="57" text-anchor="middle" font-size="17" font-weight="700" fill="#4B8BBE" filter="url(#glow)">PY</text>
+  </g>
+  <g class="chip" style="animation-delay:-0.90s">
+    <rect x="259.0" y="18" width="76" height="60" rx="12" fill="#0d1526" stroke="#f7df1e" stroke-opacity="0.85"/>
+    <text x="297.0" y="57" text-anchor="middle" font-size="17" font-weight="700" fill="#f7df1e" filter="url(#glow)">JS</text>
+  </g>
+  <g class="chip" style="animation-delay:-1.35s">
+    <rect x="361.0" y="18" width="76" height="60" rx="12" fill="#0d1526" stroke="#2965f1" stroke-opacity="0.85"/>
+    <text x="399.0" y="57" text-anchor="middle" font-size="17" font-weight="700" fill="#2965f1" filter="url(#glow)">CSS</text>
+  </g>
+  <g class="chip" style="animation-delay:-1.80s">
+    <rect x="463.0" y="18" width="76" height="60" rx="12" fill="#0d1526" stroke="#e34f26" stroke-opacity="0.85"/>
+    <text x="501.0" y="57" text-anchor="middle" font-size="14" font-weight="700" fill="#e34f26" filter="url(#glow)">HTML</text>
+  </g>
+  <g class="chip" style="animation-delay:-2.25s">
+    <rect x="565.0" y="18" width="76" height="60" rx="12" fill="#0d1526" stroke="#f05032" stroke-opacity="0.85"/>
+    <text x="603.0" y="57" text-anchor="middle" font-size="17" font-weight="700" fill="#f05032" filter="url(#glow)">GIT</text>
+  </g>
+  <g class="chip" style="animation-delay:-2.70s">
+    <rect x="667.0" y="18" width="76" height="60" rx="12" fill="#0d1526" stroke="#e6edf3" stroke-opacity="0.85"/>
+    <text x="705.0" y="57" text-anchor="middle" font-size="17" font-weight="700" fill="#e6edf3" filter="url(#glow)">GH</text>
+  </g>
+  <g class="chip" style="animation-delay:-3.15s">
+    <rect x="769.0" y="18" width="76" height="60" rx="12" fill="#0d1526" stroke="#00f0ff" stroke-opacity="0.85"/>
+    <text x="807.0" y="57" text-anchor="middle" font-size="17" font-weight="700" fill="#00f0ff" filter="url(#glow)">&lt;/&gt;</text>
+  </g>
+</svg>
