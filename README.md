@@ -70,12 +70,15 @@ reconciliation for campuses, with a deterministic balance and a full audit trail
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=avani376&show_icons=true&hide_border=true&bg_color=00000000&title_color=00f0ff&icon_color=a78bfa&text_color=c9d1d9&include_all_commits=true" width="48%" alt="GitHub stats"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=avani376&layout=compact&hide_border=true&bg_color=00000000&title_color=00f0ff&text_color=c9d1d9" width="40%" alt="top languages"/>
+<img src="https://github-readme-stats-sigma-five.vercel.app/api?username=avani376&show_icons=true&hide_border=true&bg_color=00000000&title_color=00f0ff&icon_color=a78bfa&text_color=c9d1d9&include_all_commits=true" width="48%" alt="GitHub stats"/>
+<img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=avani376&layout=compact&hide_border=true&bg_color=00000000&title_color=00f0ff&text_color=c9d1d9" width="40%" alt="top languages"/>
 
 <img src="https://streak-stats.demolab.com?user=avani376&hide_border=true&background=00000000&ring=00F0FF&fire=A78BFA&currStreakLabel=00F0FF&sideLabels=7C8DB0&currStreakNum=E6F1FF&sideNums=E6F1FF&dates=44536E" width="70%" alt="GitHub streak"/>
 
-<img src="https://github-profile-trophy.vercel.app/?username=avani376&theme=discord&no-frame=true&no-bg=true&column=4&margin-w=8" width="90%" alt="achievements"/>
+<a href="https://github.com/Avani376?tab=achievements"><img src="https://img.shields.io/badge/PULL_SHARK-UNLOCKED-a855f7?style=for-the-badge&logo=github&logoColor=white&labelColor=0a101f" alt="Pull Shark achievement"/></a>
+<img src="https://img.shields.io/badge/REPOS-11-00f0ff?style=for-the-badge&labelColor=0a101f" alt="public repos"/>
+<img src="https://img.shields.io/badge/STARS-4-00f0ff?style=for-the-badge&labelColor=0a101f" alt="stars earned"/>
+<img src="https://img.shields.io/badge/FOLLOWERS-3-00f0ff?style=for-the-badge&labelColor=0a101f" alt="followers"/>
 
 </div>
 
