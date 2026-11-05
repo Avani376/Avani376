@@ -1,0 +1,11 @@
+# local dev kit — not part of the deployed profile
+__pycache__/
+preview/
+SETUP.md
+tools/avatar.png
+tools/common.py
+tools/build.py
+tools/assets_a.py
+tools/assets_b.py
+tools/assets_c.py
+tools/assets_d.py
