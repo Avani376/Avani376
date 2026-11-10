@@ -20,6 +20,7 @@ public data:  GH_TOKEN=ghp_xxx python3 tools/render_telemetry.py
 """
 import datetime as dt
 import json
+import math
 import os
 import sys
 import time
@@ -34,6 +35,7 @@ TOKEN = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN") or ""
 # ---------------------------------------------------------------- palette
 BG, PANEL, PANEL2, LINE = "#05070f", "#0a101f", "#0d1526", "#1c2a44"
 CYAN, VIOLET, LIME, AMBER, PINK = "#00f0ff", "#a78bfa", "#4ade80", "#fbbf24", "#f472b6"
+GOLD, GOLD_D = "#ffd166", "#b8860b"
 TXT, DIM, DIM2 = "#e6f1ff", "#7c8db0", "#44536e"
 FONT = "'Cascadia Code','JetBrains Mono',Consolas,'Courier New',monospace"
 LEVELS = ["#14243c", "#155e75", "#0891b2", "#22d3ee", "#a5f3fc"]  # cyan ramp
@@ -163,17 +165,20 @@ DEFS = f"""
     <stop offset="0" stop-color="{CYAN}" stop-opacity="0"/>
     <stop offset="1" stop-color="{CYAN}" stop-opacity="0.45"/>
   </linearGradient>
+  <linearGradient id="arcG1" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="{CYAN}"/><stop offset="1" stop-color="#7ee9ff"/>
+  </linearGradient>
   <pattern id="crt" width="4" height="4" patternUnits="userSpaceOnUse">
     <rect width="4" height="2" fill="#ffffff" opacity="0.03"/>
   </pattern>
 </defs>"""
 
 
-def panel(wd, ht, title, right):
+def panel(wd, ht, title, right, accent=CYAN):
     return f"""
-<rect width="{wd}" height="{ht}" rx="14" fill="url(#panelG)" stroke="{CYAN}" stroke-opacity="0.35"/>
+<rect width="{wd}" height="{ht}" rx="14" fill="url(#panelG)" stroke="{accent}" stroke-opacity="0.35"/>
 <rect x="1.5" y="1.5" width="{wd - 3}" height="{ht - 3}" rx="13" fill="url(#crt)"/>
-<text x="30" y="44" font-size="14" letter-spacing="3" fill="{CYAN}">⌁ {title}</text>
+<text x="30" y="44" font-size="14" letter-spacing="3" fill="{accent}">⌁ {title}</text>
 <text x="{wd - 30}" y="44" text-anchor="end" font-size="10.5" letter-spacing="2" fill="{DIM}">{right}</text>
 <line x1="24" y1="60" x2="{wd - 24}" y2="60" stroke="{LINE}"/>"""
 
@@ -189,67 +194,121 @@ def write_atomic(name, svg):
 
 
 # ---------------------------------------------------------------- stats.svg
-def render_stats(d):
-    wd, ht = 940, 396
-    cur, lng = streaks(d["days"])
-    tiles = [
-        ("TOTAL CONTRIBUTIONS", f"{d['total_contribs']:,}", CYAN),
-        ("CURRENT STREAK", f"{cur}", LIME),
-        ("LONGEST STREAK", f"{lng}", VIOLET),
-        ("PUBLIC REPOS", f"{d['public_repos']}", CYAN),
-        ("STARS EARNED", f"{d['stars_owned']}", AMBER),
-        ("FOLLOWERS", f"{d['followers']}", PINK),
-    ]
-    cells = []
-    for i, (label, val, col) in enumerate(tiles):
-        x = 40 + (i % 2) * 210
-        y = 96 + (i // 2) * 92
-        cells.append(f"""
-  <rect x="{x}" y="{y}" width="194" height="78" rx="10" fill="{PANEL2}" stroke="{LINE}"/>
-  <rect x="{x}" y="{y}" width="194" height="2.5" rx="1" fill="{col}" opacity="0.7" filter="url(#glow)"/>
-  <text x="{x + 14}" y="{y + 26}" font-size="10" letter-spacing="1.6" fill="{DIM}">{label}</text>
-  <text x="{x + 14}" y="{y + 62}" font-size="30" font-weight="700" fill="{col}" filter="url(#glow)"
-        class="num" style="animation-delay:-{i * 0.55:.2f}s">{val}</text>""")
-    cells = "".join(cells)
+def arc_point(cx, cy, r, deg):
+    """SVG-space angle: 150deg = bottom-left, 270 = top, 390(=30) = bottom-right."""
+    a = math.radians(deg)
+    return cx + r * math.cos(a), cy + r * math.sin(a)
 
+
+def gauge(cx, cy, r, frac, value, unit, label, col, i):
+    """240° gauge: dim track + animated value arc + SMIL needle."""
+    sweep = 240.0
+    frac = max(0.02, min(1.0, frac))
+    a0 = 150.0
+    a1 = a0 + sweep * frac
+    x0, y0 = arc_point(cx, cy, r, a0)
+    xa, ya = arc_point(cx, cy, r, a1)
+    large = 1 if (a1 - a0) > 180 else 0
+    track = (f'<path d="M {x0:.1f} {y0:.1f} A {r} {r} 0 1 1 {arc_point(cx, cy, r, a0 + sweep)[0]:.1f} '
+             f'{arc_point(cx, cy, r, a0 + sweep)[1]:.1f}" fill="none" stroke="{LINE}" stroke-width="11" '
+             f'stroke-linecap="round" opacity="0.7"/>')
+    val = (f'<path class="garc" style="animation-delay:-{i * 0.9:.1f}s" '
+           f'd="M {x0:.1f} {y0:.1f} A {r} {r} 0 {large} 1 {xa:.1f} {ya:.1f}" fill="none" '
+           f'stroke="{col}" stroke-width="11" stroke-linecap="round" pathLength="100" filter="url(#glow)"/>')
+    # ticks
+    ticks = []
+    for k in range(9):
+        ang = a0 + sweep * k / 8
+        x1, y1 = arc_point(cx, cy, r - 16, ang)
+        x2, y2 = arc_point(cx, cy, r - 10, ang)
+        ticks.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" '
+                     f'stroke="{DIM2}" stroke-width="1.4"/>')
+    ticks = "".join(ticks)
+    nx, ny = arc_point(cx, cy, r - 20, a1)
+    return f"""
+  <g>
+    {track}{val}{ticks}
+    <line class="gneedle" style="animation-delay:-{i * 0.9:.1f}s" x1="{cx}" y1="{cy}" x2="{nx:.1f}" y2="{ny:.1f}"
+          stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" opacity="0.85">
+      <animateTransform attributeName="transform" type="rotate"
+        values="{a0} {cx} {cy};{a1:.1f} {cx} {cy};{a1:.1f} {cx} {cy};{a0} {cx} {cy}"
+        keyTimes="0;0.42;0.86;1" dur="8s" repeatCount="indefinite"/>
+    </line>
+    <circle cx="{cx}" cy="{cy}" r="4" fill="{col}"/>
+    <text x="{cx}" y="{cy + 30}" text-anchor="middle" font-size="24" font-weight="700" fill="{TXT}" filter="url(#glow)">{value}</text>
+    <text x="{cx}" y="{cy + 46}" text-anchor="middle" font-size="8.5" letter-spacing="1.2" fill="{DIM}">{unit}</text>
+    <text x="{cx}" y="{cy + r + 22}" text-anchor="middle" font-size="10" letter-spacing="2" fill="{col}">{label}</text>
+  </g>"""
+
+
+def render_stats(d):
+    wd, ht = 940, 430
+    cur, lng = streaks(d["days"])
+    today = dt.date.today().isoformat()
+
+    gauges = [
+        gauge(120, 192, 58, d["total_contribs"] / 300, f"{d['total_contribs']:,}", "THIS YEAR",
+              "CONTRIBUTIONS", CYAN, 0),
+        gauge(310, 192, 58, cur / max(lng, 1), f"{cur}", "DAYS", "CURRENT STREAK", LIME, 1),
+        gauge(500, 192, 58, lng / 30, f"{lng}", "DAYS", "LONGEST STREAK", VIOLET, 2),
+    ]
+    gauges = "".join(gauges)
+
+    # compact stat chips under the gauges
+    chips_data = [("PUBLIC REPOS", f"{d['public_repos']}", CYAN),
+                  ("STARS EARNED", f"{d['stars_owned']}", GOLD),
+                  ("FOLLOWERS", f"{d['followers']}", PINK),
+                  ("PULL-SHARK", "✓ UNLOCKED", AMBER)]
+    chips = []
+    for i, (k, v, col) in enumerate(chips_data):
+        x = 40 + i * 118
+        chips.append(f"""
+  <rect x="{x}" y="318" width="106" height="46" rx="8" fill="{PANEL2}" stroke="{LINE}"/>
+  <text x="{x + 11}" y="{318 + 17}" font-size="8.5" letter-spacing="1.2" fill="{DIM}">{k}</text>
+  <text x="{x + 11}" y="{318 + 36}" font-size="13" fill="{col}" class="gnum" style="animation-delay:-{i * 0.7:.1f}s">{v}</text>""")
+    chips = "".join(chips)
+
+    # languages
     langs = d["langs"]
     total_bytes = sum(v for _, v in langs) or 1
-    colors = [CYAN, LIME, AMBER, VIOLET, PINK, "#60a5fa"]
-    bars, lx, ly = [], 480, 108
+    colors = [CYAN, LIME, GOLD, VIOLET, PINK, "#60a5fa"]
+    lx, ly = 640, 100
+    bars = []
     for i, ((name, size), col) in enumerate(zip(langs, colors)):
         pct = size / total_bytes
-        bw = max(6, int(360 * pct))
-        nm = name if len(name) <= 16 else name[:15] + "…"
+        bw = max(6, int(250 * pct))
+        nm = name if len(name) <= 14 else name[:13] + "…"
         bars.append(f"""
-  <text x="{lx}" y="{ly + i * 38}" font-size="11.5" letter-spacing="1.5" fill="{DIM}">{nm}</text>
-  <text x="{lx + 360}" y="{ly + i * 38}" text-anchor="end" font-size="11.5" fill="{col}">{pct * 100:.1f}%</text>
-  <rect x="{lx}" y="{ly + i * 38 + 8}" width="360" height="6" rx="3" fill="{LINE}" opacity="0.5"/>
+  <text x="{lx}" y="{ly + i * 42}" font-size="11.5" letter-spacing="1.5" fill="{DIM}">{nm}</text>
+  <text x="{lx + 250}" y="{ly + i * 42}" text-anchor="end" font-size="11.5" fill="{col}">{pct * 100:.1f}%</text>
+  <rect x="{lx}" y="{ly + i * 42 + 8}" width="250" height="6" rx="3" fill="{LINE}" opacity="0.5"/>
   <g style="transform-box:fill-box;transform-origin:left center">
-    <rect class="bar" style="animation-delay:-{i * 0.4:.1f}s" x="{lx}" y="{ly + i * 38 + 8}" width="{bw}" height="6" rx="3" fill="{col}" filter="url(#glow)"/>
+    <rect class="gbar" style="animation-delay:-{i * 0.4:.1f}s" x="{lx}" y="{ly + i * 42 + 8}" width="{bw}" height="6" rx="3" fill="{col}" filter="url(#glow)"/>
   </g>""")
     bars = "".join(bars)
 
-    today = dt.date.today().isoformat()
     body = f"""{svg_head(wd, ht)}
 {DEFS}
 <style>
-  .num{{animation:np 3s ease-in-out infinite}}
+  .garc{{stroke-dasharray:100;animation:gfill 8s cubic-bezier(.2,.7,.2,1) infinite}}
+  @keyframes gfill{{0%{{stroke-dashoffset:100}}42%{{stroke-dashoffset:0}}86%{{stroke-dashoffset:0}}100%{{stroke-dashoffset:100}}}}
+  .gnum{{animation:np 3s ease-in-out infinite}}
   @keyframes np{{0%,100%{{opacity:.82}}50%{{opacity:1}}}}
-  .bar{{animation:fill 7s cubic-bezier(.2,.7,.2,1) infinite}}
+  .gbar{{animation:fill 7s cubic-bezier(.2,.7,.2,1) infinite}}
   @keyframes fill{{0%{{transform:scaleX(.03);opacity:.6}}42%{{transform:scaleX(1);opacity:1}}86%{{transform:scaleX(1);opacity:1}}100%{{transform:scaleX(.03);opacity:.6}}}}
   .scan{{animation:scan 5s cubic-bezier(.45,0,.55,1) infinite}}
-  @keyframes scan{{0%{{transform:translateY(0)}}100%{{transform:translateY({ht - 70}px)}}}}
+  @keyframes scan{{0%{{transform:translateY(0)}}100%{{transform:translateY({ht - 74}px)}}}}
   .bd{{stroke-dasharray:5 7;animation:dsh 22s linear infinite}}
   @keyframes dsh{{to{{stroke-dashoffset:-600}}}}
 </style>
-{panel(wd, ht, "TELEMETRY.CORE — LIVE FROM THE GITHUB API", "SELF-HOSTED · NO EXTERNAL SERVICES")}
-{cells}
-<text x="480" y="86" font-size="11" letter-spacing="2" fill="{VIOLET}" opacity="0.9">TOP.LANGUAGES — BY CODE BYTES</text>
+{panel(wd, ht, "GITHUB.TELEMETRY — LIVE FROM THE API", "SELF-HOSTED · NO EXTERNAL SERVICES", GOLD)}
+{gauges}
+{chips}
+<text x="{lx}" y="78" font-size="11" letter-spacing="2" fill="{VIOLET}" opacity="0.9">TOP.LANGUAGES — BY CODE BYTES</text>
+<line x1="620" y1="90" x2="620" y2="{ht - 40}" stroke="{LINE}" stroke-dasharray="3 6"/>
 {bars}
-<g class="scan"><rect x="24" y="64" width="{wd - 48}" height="26" fill="url(#scanG)" opacity="0.14"/></g>
-<rect x="480" y="{ly + len(langs) * 38 + 2}" width="150" height="26" rx="13" fill="none" stroke="{AMBER}" stroke-opacity="0.8"/>
-<text x="555" y="{ly + len(langs) * 38 + 19}" text-anchor="middle" font-size="11" letter-spacing="1" fill="{AMBER}">★ PULL-SHARK ✓</text>
-<text x="{wd}" y="{ht - 10}" text-anchor="end" font-size="9.5" letter-spacing="1.5" fill="{DIM2}">AUTO-RENDERED {today} · GITHUB ACTIONS · STALE-PROOF</text>
+<g class="scan"><rect x="24" y="64" width="{wd - 48}" height="26" fill="url(#scanG)" opacity="0.13"/></g>
+<text x="{wd}" y="{ht - 12}" text-anchor="end" font-size="9.5" letter-spacing="1.5" fill="{DIM2}">AUTO-RENDERED {today} · GITHUB ACTIONS · STALE-PROOF</text>
 </svg>"""
     write_atomic("stats.svg", body)
 
@@ -314,7 +373,7 @@ def render_snake(d):
   .bd{{stroke-dasharray:5 7;animation:dsh 22s linear infinite}}
   @keyframes dsh{{to{{stroke-dashoffset:-600}}}}
 </style>
-{panel(wd, ht, "CONTRIBUTION.STREAM — REAL COMMIT GRAPH", "RENDERED DAILY · SELF-HOSTED")}
+{panel(wd, ht, "CONTRIBUTION.STREAM — REAL COMMIT GRAPH", "RENDERED DAILY · SELF-HOSTED", GOLD)}
 {rects}
 {body}
 <text class="ttl" x="{x0}" y="76" font-size="11" letter-spacing="1.5" fill="{DIM}">◼ {total:,} CONTRIBUTIONS THIS YEAR — THE SNAKE EATS CHRONOLOGICALLY</text>

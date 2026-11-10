@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="26" viewBox="0 0 1100 26" font-family="'Cascadia Code','JetBrains Mono',Consolas,'Courier New',monospace" >
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1100" height="30" viewBox="0 0 1100 30" font-family="'Cascadia Code','JetBrains Mono',Consolas,'Courier New',monospace" >
 <style>
   .p1{animation:p1 3.2s linear infinite}
   @keyframes p1{from{transform:translateX(0)}to{transform:translateX(1000px)}}
   .p2{animation:p2 3.2s linear infinite}
   @keyframes p2{from{transform:translateX(0)}to{transform:translateX(-1000px)}}
+  .ch1{animation:chv 2.6s ease-in-out infinite}
+  .ch2{animation:chv 2.6s ease-in-out infinite reverse}
+  @keyframes chv{0%,100%{opacity:.25}50%{opacity:1}}
 </style>
-<line x1="50" y1="13" x2="1050" y2="13" stroke="#1c2a44" stroke-width="1.4"/>
-<line x1="50" y1="13" x2="150" y2="13" stroke="#00f0ff" stroke-width="2" filter="url(#glow)" class="p1"/>
-<line x1="950" y1="13" x2="1050" y2="13" stroke="#a78bfa" stroke-width="2" filter="url(#glow)" class="p2"/>
-<circle cx="550.0" cy="13" r="3" fill="#00f0ff" filter="url(#glow)"/>
-<circle cx="532.0" cy="13" r="1.6" fill="#0e7490"/>
-<circle cx="568.0" cy="13" r="1.6" fill="#0e7490"/>
+<line x1="50" y1="15" x2="1050" y2="15" stroke="#1c2a44" stroke-width="1.4"/>
+<line x1="50" y1="15" x2="150" y2="15" stroke="#00f0ff" stroke-width="2" filter="url(#glow)" class="p1"/>
+<line x1="950" y1="15" x2="1050" y2="15" stroke="#ffd166" stroke-width="2" filter="url(#glow)" class="p2"/>
+<text class="ch1" x="516.0" y="19" font-size="12" fill="#0e7490">▸</text>
+<text class="ch2" x="576.0" y="19" font-size="12" fill="#b8860b">◂</text>
+<circle cx="550.0" cy="15" r="3" fill="#ffd166" filter="url(#glow)"/>
+<circle cx="532.0" cy="15" r="1.6" fill="#0e7490"/>
+<circle cx="568.0" cy="15" r="1.6" fill="#b8860b"/>
 </svg>
