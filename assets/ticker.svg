@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1100" height="54" viewBox="0 0 1100 54" font-family="'Cascadia Code','JetBrains Mono',Consolas,'Courier New',monospace" >
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="54" viewBox="0 0 1100 54" font-family="'Cascadia Code','JetBrains Mono',Consolas,'Courier New',monospace" >
 
 <defs>
   <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
@@ -44,6 +44,6 @@
 </g>
 <rect width="130" height="54" fill="url(#fadeL)"/>
 <rect x="970" width="130" height="54" fill="url(#fadeR)"/>
-<text class="tick-dot" x="14" y="31.0" font-size="12" fill="#ffd166">●</text>
-<text class="tick-dot" x="1076" y="31.0" font-size="12" fill="#ffd166">●</text>
+<text class="tick-dot" x="14" y="31.0" font-size="12" fill="#4ade80">●</text>
+<text class="tick-dot" x="1076" y="31.0" font-size="12" fill="#4ade80">●</text>
 </svg>

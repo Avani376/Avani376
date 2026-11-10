@@ -1,11 +1,11 @@
 <!-- ═══════════════════════════════════════════════════════════════
-     AVANI.EXE v3.0 GOLD.EDITION  ·  profile of @avani376
-     100% self-hosted art — every pixel is a file in this repo.
+     AVANI.EXE  ·  profile of @avani376
+     theme: neon-terminal / holographic  ·  designed in ZCode
      ═══════════════════════════════════════════════════════════════ -->
 
 <div align="center">
 
-<img src="assets/hero.svg" width="100%" alt="AVANI JANNAWAR — cinematic hero banner"/>
+<img src="assets/hero.svg" width="100%" alt="AVANI JANNAWAR — futuristic hero banner"/>
 
 <img src="assets/ticker.svg" width="100%" alt="technology ticker"/>
 
@@ -15,14 +15,10 @@
 
 ---
 
-### ⚡ SYSTEM_OVERVIEW
+### ⬡ identity.sys
 
 <div align="center">
 <img src="assets/id-card.svg" width="100%" alt="holographic identity card with dot-matrix portrait"/>
-</div>
-
-<div align="center">
-<img src="assets/motto.svg" width="100%" alt="live motto feed"/>
 </div>
 
 > ```diff
@@ -38,20 +34,19 @@ reconciliation for campuses, with a deterministic balance and a full audit trail
 
 ---
 
-### ⚔️ TECH_ARSENAL
-
-<div align="center">
-<img src="assets/skill-orbit.svg" width="100%" alt="orbital tech system — skills revolving around the AVANI core"/>
-</div>
+### ⌁ skill.matrix
 
 <div align="center">
 <img src="assets/skills.svg" width="100%" alt="animated skill matrix with radar sweep"/>
+</div>
+
+<div align="center">
 <img src="assets/tech.svg" width="100%" alt="tech stack chips"/>
 </div>
 
 ---
 
-### ▣ THE_WORKSTATION
+### ▣ the.workstation
 
 <div align="center">
 <img src="assets/workstation.svg" width="100%" alt="animated night-coding workstation scene"/>
@@ -65,32 +60,20 @@ reconciliation for campuses, with a deterministic balance and a full audit trail
 
 ---
 
-### 📊 GITHUB_TELEMETRY
+### 📡 telemetry
 
-*Every number is pulled from the GitHub API by my own renderer and committed
+*Every number below is pulled from the GitHub API by my own renderer and committed
 back to this repo — nothing on this page depends on a third-party service.*
 
 <div align="center">
 
-<img src="assets/stats.svg" width="100%" alt="self-hosted telemetry: arc gauges for contributions and streaks, top languages"/>
+<img src="assets/stats.svg" width="100%" alt="self-hosted telemetry: contributions, streaks, repos, stars, followers, top languages"/>
 
 </div>
 
 ---
 
-### 🚀 FEATURED_MISSIONS
-
-<div align="center">
-
-<img src="assets/missions.svg" width="100%" alt="featured mission cards: jallekha, docwise-rag-chatbot, DocuMind-AI, CoverIQ"/>
-
-**[▸ enter the full catalog](https://github.com/avani376?tab=repositories)**
-
-</div>
-
----
-
-### 🐍 SNAKE.EXE
+### 🐍 contribution.stream
 
 <div align="center">
 
@@ -101,7 +84,7 @@ back to this repo — nothing on this page depends on a third-party service.*
 
 ---
 
-### 📫 OPEN_CHANNEL
+### ⇄ uplink
 
 <div align="center">
 
@@ -132,5 +115,5 @@ back to this repo — nothing on this page depends on a third-party service.*
 
 <div align="center">
 <img src="assets/divider.svg" width="100%" alt=""/>
-<img src="assets/footer.svg" width="100%" alt="transmission footer with signal waves"/>
+<img src="assets/footer.svg" width="100%" alt="transmission footer"/>
 </div>
